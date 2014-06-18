@@ -1,0 +1,101 @@
+
+body {
+  font-family: sans-serif; 
+  font-size: 11pt; 
+  background-color: #eeeeff;
+  color: #333; 
+}
+h1 {
+  color: #500000; 
+  font-size: 24pt; 
+  font-family: serif; 
+  font-weight: normal; 
+}
+h2 {
+  color: #500000; 
+  font-size: 16pt;
+  font-family: serif; 
+  font-weight: normal; 
+}
+h3 {
+  color: #282;
+  font-size: 12pt;
+  font-family: serif;
+  font-weight: normal;
+}
+hr {
+  color: #450000;
+  background-color: #450000;
+  height: 3px;
+}
+p {
+  color: #000;
+  text-align: justify;
+}
+
+
+pre {
+ color: #201;
+}
+
+pre.formatted {
+ color: #2a2;
+}
+
+a {
+	font-size: 2em;
+	margin-left: 60px;
+}
+/* unvisited link */
+a:link {
+	color: #468be1;
+}
+
+/* visited link */
+a:visited {
+	color: #33aa33;
+}
+
+/* mouse over link */
+a:hover {
+	color: #FF00FF;
+}
+
+/* selected link */
+a:active {
+	color: #0000FF;
+}
+
+
+input {  
+	border: solid 1px #AA9129; 
+        padding: 5px;  
+        font-size: 15px;  
+        text-shadow: 0px 1px 0px #fff;  
+}  
+
+input:hover{ 
+	border: solid 1px #EEA34A; 
+  	box-shadow: 1px 1px 5px #551122;  
+
+}
+
+input:focus{ 
+	border: solid 1px #44bb22; 
+    	box-shadow: 0px 0px 5px #ffffff;  
+}
+
+.minihead{
+  color: #500000; 
+  font-size: 14pt; 
+  font-family: serif; 
+  font-weight: normal; 
+}
+
+#footer {  
+	position: absolute;  
+	bottom: 0;
+	width: 100%;  
+	height: 80px; 
+	text-align: center; 
+}  
