@@ -17,7 +17,6 @@ def upload_file(request):
             variable =  request.FILES.values()[0].read()
             
             #checking for mime/type
-            print request.FILES.values()[0].content_type
             if request.FILES.values()[0].content_type.find('text') != -1:
                 file_exist = True
     else:
