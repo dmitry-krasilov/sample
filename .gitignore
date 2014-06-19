@@ -1,4 +1,4 @@
-./manage.py~*
+'manage.py~'
 ./*.*~
 */*/*.*~
 */*.pyc
