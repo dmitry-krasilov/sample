@@ -5,6 +5,7 @@ from django.views.generic import FormView
 
 from forms import DocumentForm
 
+
 class UploadFormView(FormView):
 
     template_name = 'mainpage.html'
@@ -15,10 +16,10 @@ class UploadFormView(FormView):
         # This method is called when valid form data has been POSTed.
         # It should return an HttpResponse.
         file_exist = False
-        file_content = self.request.FILES.values()[0].read()
- 
+        file_content =''
         # Checking for MIME type.
-        if self.request.FILES.values()[0].content_type.find('text') != -1:
+        if 'text' in self.request.FILES.values()[0].content_type:
+            file_content = self.request.FILES.values()[0].read()
             file_exist = True
         
         return render_to_response('mainpage.html',
