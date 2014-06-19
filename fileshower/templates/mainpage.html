@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<head>
+		<title>Просмотрщик текстовых файлов</title>	
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		
+		{% load staticfiles %}
+		<link rel="stylesheet" href="{% static "style.css" %}" type="text/css">
+		
+		
+	</head>
+	<body>
+	<h1>Просмотрщик текстовых файлов</h1>		
+	
+		<hr>
+	
+	           <div class="form">		
+				            <form action="{% url upload_file %}" method="post" enctype="multipart/form-data">
+					            {% csrf_token %}
+										
+					            <p> Выберите файл: </p>
+					            <p>
+					            {{ form.docfile }}
+					            </p>
+					            <p><input type="submit" value="Upload" /></p>
+				            </form>
+	           </div>
+			
+			   {% if file_exist %}
+			
+	           <div class="text">		
+	                                <p>Содержимое файла: </p>
+					                <pre>{{ file_data }}</pre>
+	           </div>		
+                           
+               {% endif %}		    
+                
+		<div class="footer">
+			<hr>
+			<h1>Дмитрий Красилов &copy; 2014</h1>		
+		</div>
+	
+	
+	</body>
+
+</html>
