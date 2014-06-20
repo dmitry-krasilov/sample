@@ -5,7 +5,7 @@ admin.autodiscover()
 
 from views import UploadFormView
 
-urlpatterns = patterns('fileshower.views',
+urlpatterns = patterns(
     url('^$', UploadFormView.as_view(), name='upload_file'),
     url(r'^admin/', include(admin.site.urls)),
 )
