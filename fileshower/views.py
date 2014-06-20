@@ -1,5 +1,4 @@
-import datetime
-
+# -*- coding: utf-8 -*-
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.views.generic import FormView
@@ -25,9 +24,8 @@ class UploadFormView(FormView):
             file_content = uploaded_file.read()
             file_exist = True
             newdoc = Document(
-                                name = uploaded_file.name,
-                                content = file_content,
-                                lastviewed = datetime.datetime.now()
+                name=uploaded_file.name,
+                content=file_content,
             )
             newdoc.save()
         
