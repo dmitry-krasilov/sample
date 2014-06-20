@@ -1,8 +1,11 @@
+import datetime
+
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.views.generic import FormView
 
 from forms import DocumentForm
+from models import Document
 
 
 class UploadFormView(FormView):
@@ -15,11 +18,18 @@ class UploadFormView(FormView):
     
         file_exist = False
         file_content =''
+        uploaded_file = self.request.FILES.values()[0]
         
         # Checking for MIME type.
-        if 'text' in self.request.FILES.values()[0].content_type:
-            file_content = self.request.FILES.values()[0].read()
+        if 'text' in uploaded_file.content_type:
+            file_content = uploaded_file.read()
             file_exist = True
+            newdoc = Document(
+                                name = uploaded_file.name,
+                                content = file_content,
+                                lastviewed = datetime.datetime.now()
+            )
+            newdoc.save()
         
         return render_to_response(
             'mainpage.html',
