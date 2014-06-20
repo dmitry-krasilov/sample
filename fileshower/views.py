@@ -22,10 +22,10 @@ class UploadFormView(FormView):
             file_content = self.request.FILES.values()[0].read()
             file_exist = True
         
-        return render_to_response('mainpage.html', \
-                                     {'form': form, \
-                                 'file_data': file_content, \
-                                'file_exist': file_exist}, \
-                              context_instance=RequestContext(self.request) \
+        return render_to_response('mainpage.html',
+                                     {'form': form,
+                                 'file_data': file_content,
+                                'file_exist': file_exist},
+                              context_instance=RequestContext(self.request)
                               )
   
