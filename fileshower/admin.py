@@ -1,35 +1,38 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
-from django.utils.translation import ugettext_lazy as _
 from django import forms
 from fileshower.models import Document
 
-class FileTypeListFilter(admin.SimpleListFilter):
-    title = _('File type')
 
+class FileTypeListFilter(admin.SimpleListFilter):
+    title = 'File type'
     parameter_name = 'type'
     
     def lookups(self, request, model_admin):
-        
         return (
-            ('py', _('.py files')),
-            ('txt', _('.txt files')),
-            ('other', _('Other files')),
+            ('py', '.py files'),
+            ('txt', '.txt files'),
+            ('other', 'Other files'),
         )
         
     def queryset(self, request, queryset):
-    
         if self.value() == 'py':
             tmp_id_queryset = [x.id for x in queryset if x.name.split(".")[-1] == 'py']
             return queryset.filter(pk__in=tmp_id_queryset)
             
         if self.value() == 'txt':
-            tmp_id_queryset = [x.id for x in queryset if x.name.split(".")[-1] == 'txt']
+            tmp_id_queryset = [
+                x.id for x in queryset
+                if x.name.split(".")[-1] == 'txt'
+            ]
             return queryset.filter(pk__in=tmp_id_queryset)
             
         if self.value() == 'other':
             special = ('py','txt')
-            tmp_id_queryset = [x.id for x in queryset if x.name.split(".")[-1] not in special]
+            tmp_id_queryset = [
+                x.id for x in queryset 
+                if x.name.split(".")[-1] not in special
+            ]
             return queryset.filter(pk__in=tmp_id_queryset)
             
 

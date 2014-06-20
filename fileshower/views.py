@@ -14,7 +14,6 @@ class UploadFormView(FormView):
     success_url = '/'
         
     def form_valid(self, form):
-    
         file_exist = False
         file_content =''
         uploaded_file = self.request.FILES.values()[0]
