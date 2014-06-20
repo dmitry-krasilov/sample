@@ -55,7 +55,7 @@ class DocumentAdmin(admin.ModelAdmin):
     fields = ('content', 'name', 'lastviewed',)
     list_display = ('name', 'lastviewed',)
     readonly_fields = ('name', 'lastviewed',)
-    list_filter = ('name','lastviewed', FileTypeListFilter,)
+    list_filter = ('lastviewed', FileTypeListFilter,)
     form = DocumentAdminForm
 
 
